@@ -1,14 +1,21 @@
 # BOMB WORDS BOT
 # JKLM.fun
 # Credits: Zlare#7771
-from pynput.keyboard import Key, Controller
+try:
+    from pynput.keyboard import Key, Controller
+except ImportError:
+    import os
+    print("Installing dependencies on first run")
+    os.system("pip install pynput")
+    from pynput.keyboard import Key, Controller
 import time
 import random
 keyboard = Controller()
 
 flex_mode = False
 flex_cap = 12
-autosubmit_mode = False
+autosubmit_mode = True
+speed = 1
 
 key = {
     True: "ENABLED",
@@ -17,9 +24,13 @@ key = {
 
 if __name__ == "__main__":
     print("JKLM Bomb Words Bot by Zlare")
-    print(f"Flex: {key[flex_mode]}")
+    print(f"Flex: {key[flex_mode]}", endl='')
+    if flex_mode:
+        print(f" Target: {flex_cap}", endl='')
+    print()
     print(f"AutoSubmit: {key[autosubmit_mode]}")
     print("============================")
+    print(f"Speed: {speed}")
 
 with open("../wordlist_full.txt", 'r') as f:
     data = [i.lower() for i in f.read().splitlines()]
@@ -163,8 +174,13 @@ def flex(val=flex_cap):
         print("Flex Disabled")
 
 
+def set(var, value):
+    globals()['var'] = value
+    print(f"Set {var} to {globals()['var']}")
+
+
 def submit(word):
-    length = len(word) * 2 + 1
+    length = len(word) * 2 / speed + 1
     time.sleep(0.1)
     for i in word:
         keyboard.type(i)
