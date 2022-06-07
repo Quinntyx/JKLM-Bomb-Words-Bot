@@ -1,0 +1,19 @@
+{
+    "name": "JKLM Bomb Words Bot",
+    "author": "A better coder than Kenji",
+    "manifest_version": 3,
+    "version": "0.0.1",
+    "description": "A bot for BombParty",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://jklm.fun/*"
+            ],
+            "js": [
+                "bomb_words_bot.js"
+            ],
+            "all_frames": false,
+            "match_about_blank": true
+        }
+    ]
+}
