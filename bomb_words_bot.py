@@ -24,9 +24,9 @@ key = {
 
 if __name__ == "__main__":
     print("JKLM Bomb Words Bot by Zlare")
-    print(f"Flex: {key[flex_mode]}", endl='')
+    print(f"Flex: {key[flex_mode]}", end='')
     if flex_mode:
-        print(f" Target: {flex_cap}", endl='')
+        print(f" Target: {flex_cap}", end='')
     print()
     print(f"AutoSubmit: {key[autosubmit_mode]}")
     print("============================")
@@ -174,7 +174,7 @@ def flex(val=flex_cap):
         print("Flex Disabled")
 
 
-def set(var, value):
+def setVar(var, value):
     globals()['var'] = value
     print(f"Set {var} to {globals()['var']}")
 
