@@ -64,9 +64,9 @@ letter_weights = {
     't': 1,
     'u': 1.5,
     'v': 1.8,
-    'w': 0,
+    'w': 2,
     'x': 0,
-    'y': 0,
+    'y': 2,
     'z': 0,
     '-': 0.25,
     "'": 0.1,
@@ -154,7 +154,7 @@ def find_containing(dataset, substr):
 
 
 def gold():
-    return [i for i in 'abcdefghijelmnopqrstuv' if i not in guessed_letters]
+    return [i for i in 'abcdefghijkelmnopqrstuvwy' if i not in guessed_letters]
 
 
 def clear():
